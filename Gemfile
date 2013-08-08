@@ -1,12 +1,16 @@
-CONFIG = :pqr
+CONFIG = :snc
+#CONFIG = :remote  # :pqr, 
 ###########################################################################
 case CONFIG
 when :pqr
   GEMS_PATH = 'http://localhost/rubygems/'
   SPREE_DEVISE_PATH = 'file:///home/pqr/work/jaf/spree'
-else
+when :snc
+  GEMS_PATH = 'file:///home/test/.rvm/gems/ruby-1.9.3-p392/bundler/gems/'
+  SPREE_DEVISE_PATH = 'file:///media/Data/jaf/spree'
+when :remote
   GEMS_PATH = 'http://rubygems.org'
-  SPREE_DEVISE_PATH = 'https://github.com/spree'
+  SPREE_DEVISE_PATH = 'https://github.com/radar'
 end
 ########################################################################
 
