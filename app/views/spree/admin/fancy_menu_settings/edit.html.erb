@@ -1,1 +1,23 @@
-<p>Work in progress... :-)</p>
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+
+<div style="float:left; margin:20px;">
+  <ul>
+    <%@column_left.each do |t|%>
+      <li><%= t[0] %></li>
+    <%end%>
+  </ul>
+</div>
+<div style="float:left; margin:20px;">
+  <ul>
+    <%@column_center.each do |t|%>
+      <li><%= t[0] %></li>
+    <%end%>
+  </ul>
+</div>
+<div style="float:left; margin:20px;">
+  <ul>
+    <%@column_right.each do |t|%>
+      <li><%= t[0] %></li>
+    <%end%>
+  </ul>
+</div>
