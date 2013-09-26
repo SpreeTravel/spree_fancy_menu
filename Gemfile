@@ -1,6 +1,9 @@
-CONFIG = :snc
+CONFIG = :dustet
 ###########################################################################
 case CONFIG
+when :dustet
+  GEMS_PATH = 'file:///Users/alejandrodustet/rubygems/'
+  SPREE_PATH = 'file:///Users/alejandrodustet/rubygems/Important/thesis/SpreeRepos.developing/spree'
 when :pqr
   GEMS_PATH = 'http://localhost/rubygems/'
   SPREE_PATH = 'file:///home/pqr/work/jaf/spree'
