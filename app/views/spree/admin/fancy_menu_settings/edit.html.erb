@@ -1,23 +1,18 @@
 <%= render :partial => 'spree/admin/shared/configuration_menu' %>
 
-<div style="float:left; margin:20px;">
-  <ul>
-    <%@column_left.each do |t|%>
-      <li><%= t[0] %></li>
-    <%end%>
-  </ul>
+<div>
+  <%= render 'menu_preview'%>
 </div>
-<div style="float:left; margin:20px;">
+<div id="taxonomy_tree" class="tree jstree jstree-0 jstree-focused jstree-apple">
   <ul>
-    <%@column_center.each do |t|%>
-      <li><%= t[0] %></li>
-    <%end%>
-  </ul>
-</div>
-<div style="float:left; margin:20px;">
-  <ul>
-    <%@column_right.each do |t|%>
-      <li><%= t[0] %></li>
-    <%end%>
+    <% if @taxonomies.count > 0 %>
+      <%@taxonomies.each do |taxonomy|%>
+
+        <li class="jstree-last">
+          <ins class="jstree-icon">&nbsp;</ins>
+          <%= taxonomy.name %>
+        </li>
+      <% end %>    
+    <% end %>
   </ul>
 </div>
