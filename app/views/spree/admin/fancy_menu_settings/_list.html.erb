@@ -1,0 +1,26 @@
+
+<ul data-d="<%= d %>">
+
+<% taxons.each do |taxon| %>
+	
+	<li data-name="<%= taxon.name %>" data-id="<%= taxon.id %>" data-depth="<%= get_taxon_depth(taxon.id) %>">
+		
+		<p id="<%= taxon.name %>" class="li-element slide-trigger"> 
+			<span class="icon-list-taxon"><i class="icon-chevron-down"></i></span>
+			<span class="li-element-text"><%= taxon.name %></span>
+			<a class="add-remove" data-state="add"><i class="icont-plus"></i></a> 
+		</p>
+	
+		<div class="slide-list">
+			
+			<% if have_children(taxon.id) %>
+				<%= render :partial => 'list', :locals => { :taxons => get_children(taxon.id), :d => d + 1 } %>
+			<% end %>
+
+		</div>
+
+	</li>
+
+<% end %>
+
+</ul>

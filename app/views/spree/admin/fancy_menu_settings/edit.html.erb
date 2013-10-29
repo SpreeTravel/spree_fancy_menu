@@ -1,18 +1,32 @@
 <%= render :partial => 'spree/admin/shared/configuration_menu' %>
 
-<div>
-  <%= render 'menu_preview'%>
-</div>
-<div id="taxonomy_tree" class="tree jstree jstree-0 jstree-focused jstree-apple">
-  <ul>
-    <% if @taxonomies.count > 0 %>
-      <%@taxonomies.each do |taxonomy|%>
+<%= render :partial => 'inplace' %>
 
-        <li class="jstree-last">
-          <ins class="jstree-icon">&nbsp;</ins>
-          <%= taxonomy.name %>
-        </li>
-      <% end %>    
-    <% end %>
-  </ul>
+<%= render :partial => 'menu_preview' %>
+
+<%= button_tag(:type => 'button', :id => "button-up") do %>
+    <i class="icon-chevron-up"></i>
+  	<span>Collapse</span>
+  <% end %>
+<div id="taxons-tree">
+	<%= render(:partial => 'list', :locals => { :taxons => @taxonomies, :d => 0 }) %>
+</div>
+
+<div id="admin-fancy-menu-controls">
+	<%= button_tag(:type => 'button', :id => "button-ready") do %>
+    <i class="icon-thumbs-up"></i>
+  	<span>Ready</span>
+  <% end %>
+  <%= button_tag(:type => 'button', :id => "button-update") do %>
+  	<i class="icon-refresh"></i>
+  	<span>Update</span>
+  <% end %>
+</div>
+
+<div id="admin-fancy-menu-form">
+	<%= form_tag(current_admin_fancy_menu_settings_path()) do %>
+    <div id="form-fields">
+
+    </div>
+  <% end %>
 </div>

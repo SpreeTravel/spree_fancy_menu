@@ -1,0 +1,7 @@
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+
+<ul>
+<% @testlist.each do |item| %>
+	<li><%= item[:name] %>,<%= item[:id] %>,<%= item[:index] %>,<%= item[:depth] %></li>
+<% end %>
+</ul>
