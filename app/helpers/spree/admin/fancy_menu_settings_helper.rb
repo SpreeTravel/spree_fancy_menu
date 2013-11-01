@@ -16,6 +16,19 @@ module Spree
 				return 5
 			end
 
+			def on_menu(menu, taxon)
+				menu.each do |item|
+					if item.taxon.id == taxon.id
+						return true
+					end
+				end
+				return false
+			end
+
+			def root(taxonomy_id)
+		  	return Taxon.find_by_taxonomy_id(taxonomy_id)
+		  end
+
 		end
 	end
 end

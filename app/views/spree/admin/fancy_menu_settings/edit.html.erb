@@ -2,14 +2,18 @@
 
 <%= render :partial => 'inplace' %>
 
+<% if @errors %>
+  <%= render :partial => 'errors' %>
+<% end %>
+
 <%= render :partial => 'menu_preview' %>
 
-<%= button_tag(:type => 'button', :id => "button-up") do %>
+<%= button_tag(:type => 'button', :id => "button-collapse") do %>
     <i class="icon-chevron-up"></i>
   	<span>Collapse</span>
-  <% end %>
+<% end %>
 <div id="taxons-tree">
-	<%= render(:partial => 'list', :locals => { :taxons => @taxonomies, :d => 0 }) %>
+	<%= render(:partial => 'roots', :locals => { :taxonomies => @taxonomies, :d => 0 }) %>
 </div>
 
 <div id="admin-fancy-menu-controls">
@@ -17,14 +21,10 @@
     <i class="icon-thumbs-up"></i>
   	<span>Ready</span>
   <% end %>
-  <%= button_tag(:type => 'button', :id => "button-update") do %>
-  	<i class="icon-refresh"></i>
-  	<span>Update</span>
-  <% end %>
 </div>
 
 <div id="admin-fancy-menu-form">
-	<%= form_tag(current_admin_fancy_menu_settings_path()) do %>
+	<%= form_tag(save_admin_fancy_menu_settings_path()) do %>
     <div id="form-fields"></div>
   <% end %>
 </div>

@@ -1,5 +1,20 @@
 <div id="container-sortable-menu">
- <ul id="sortable_menu">
- </ul>
- <div class="clear"></div>
+  <ul id="sortable_menu">
+    <% if @menu_items.count > 0 %>
+      <% @menu_items.each do |item| %>
+        <li data-id="<%= item.taxon.id %>">
+          <span>
+            <i class="icon-move"></i>
+          </span>
+          <span>
+            <%= item.name %>
+          </span>
+          <span>
+            <input id="depth_<%= item.taxon.id %>" max="3" min="1" name="depth_<%= item.name %>" type="number" value="<%= item.depth %>" />
+          </span>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+  <div class="clear"></div>
 </div>

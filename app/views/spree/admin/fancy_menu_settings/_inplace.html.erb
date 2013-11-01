@@ -2,24 +2,22 @@
 <script>
 
 	$().ready(function(){
-		$('#button-update').hide();
 		
-		$( '#sortable_menu' ).sortable(
-		{
-    	placeholder: "ui-state-highlight", 
-    	stop: function(event, ui){ $('#button-update').hide(); }
-  	});
-  	$( '#sortable_menu' ).disableSelection();
+		$('#sortable_menu').sortable({
+	    	placeholder: "ui-state-highlight", 
+	    	stop: function(event, ui){}
+  		});
+  		$('#sortable_menu').disableSelection();
 		
 		$('.slide-list').hide();
 		$('.slide-trigger').click(function() {
 			icon_tool = $(this).find('i').first();
-  		$(this).next().slideToggle('fast', function() {
-  			if($(icon_tool).attr('class') == 'icon-chevron-down')
-  				$(icon_tool).attr('class', 'icon-chevron-up');
-  			else
-  				$(icon_tool).attr('class', 'icon-chevron-down');
-  		});
+  			$(this).next().slideToggle('fast', function() {
+  				if($(icon_tool).attr('class') == 'icon-chevron-down')
+  					$(icon_tool).attr('class', 'icon-chevron-up');
+  				else
+  					$(icon_tool).attr('class', 'icon-chevron-down');
+  			});
 		});
 		
 		$('.add-remove').click(function(event){
@@ -31,48 +29,36 @@
 			event.stopPropagation()
 		});
 		
-		$('#button-up').click(function(){
+		$('#button-collapse').click(function(){
 			$('.slide-list').slideUp();
 		});
 		
 		$('#button-ready').click(function(){
 			generate_form();
-			$('#button-update').show();
-		});	
-		$('#button-update').click(function(){
-			$('#admin-fancy-menu-form form input[name="commit"]').click();
+			$('#btn-menu-commit').click();
 		});
 		
-		//ToDo para cuando cambie algun depth hacerle hide al button update
-		
 		add_events_tree();
-		generate_tab_width(0);		
+		generate_tab_width();		
 		
 	});
 
-	function generate_tab_width(d){
-		$('ul[data-d=' + d + ']').each(function(){
-			$(this).css('margin-left', 0);
+	function generate_tab_width(){
+		leftMargin = 10
+		$('ul').each(function(){
+			depth = parseInt($(this).attr('data-d'));
+			$(this).css('margin-left', leftMargin * depth);
 		});
-		size = $('ul').size(); //calcular en view total depth y poner un hidden para usarlo
-		generate_tab_width_recursive(d + 1, 10, size);
-	};
-	
-	function generate_tab_width_recursive(d, width, size){
-		if(d <= size)
-			$('ul[data-d=' + d + ']').each(function(){
-				$(this).css('margin-left', width);
-			});
-			generate_tab_width_recursive(d + 1, width + 10, size);
-	};
+	}
 	
 	function generate_form(){
-	fields = ''
+	fields = '';
 		$('#container-sortable-menu ul li').each(function(index){
 			taxonomy_name = $(this).find('span').eq(1).text();
 			taxonomy_id = $(this).attr('data-id');
 			taxonomy_index = index;
 			taxonomy_depth = $(this).find('input[id="depth_' + taxonomy_id + '"]').val();
+
 			taxonomy_name_field = '<input name="menu[][name]" type="hidden" value="' + taxonomy_name + '" />';
 			taxonomy_id_field = '<input name="menu[][id]" type="hidden" value="' + taxonomy_id + '" />';
 			taxonomy_index_field = '<input name="menu[][index]" type="hidden" value="' + taxonomy_index + '" />';
@@ -82,10 +68,10 @@
 			
 		});
 		
-		fields+= '<input name="commit" type="submit" />';
+		fields+= '<input id="btn-menu-commit" name="commit" type="submit" />';
 		
-		$('#admin-fancy-menu-form form #form-fields').html(fields);
-	};
+		$('#form-fields').html(fields);
+	}
 	
 	function add_events_tree(){
 		$('.li-element a i').hover( 
@@ -102,28 +88,25 @@
 		name = element.parent().parent().attr('data-name');
 		id = element.parent().parent().attr('data-id');
 		
-		$("#sortable_menu").children("[data-id=" + id + "]").remove()
+		$('#sortable_menu').children("[data-id=" + id + "]").remove()
 		
 		item = '#' + name;
 		$(item).children('a').attr('data-state', 'add');
 		$(item).children('a').html('<i class="icont-plus"></i>');
 		
-		$('#button-update').hide();
 		add_events_tree();
-	};
+	}
 
 	function add_item(element){
 		name = element.parent().parent().attr('data-name');
 		id = element.parent().parent().attr('data-id');
-		depth = element.parent().parent().attr('data-depth');
 		
-		$("#sortable_menu").append('<li data-depth="'+ 1 +'" data-id="'+ id +'"><span><i class="icon-move"></i></span><span>' + name + '</span><span><input id="depth_'+ id +'" max="3" min="1" name="depth_'+ name +'" type="number" value="1" /></span></li>');
+		$('#sortable_menu').append('<li data-id="'+ id +'"><span><i class="icon-move"></i></span><span>' + name + '</span><span><input id="depth_'+ id +'" max="3" min="1" name="depth_'+ name +'" type="number" value="1" /></span></li>');
 		
 		item = '#' + name;
 		$(item).children('a').attr('data-state', 'remove');
 		$(item).children('a').html('<i class="icont-minus"></i>');
 		
-		$('#button-update').hide();
 		add_events_tree();
-	};
+	}
 </script>

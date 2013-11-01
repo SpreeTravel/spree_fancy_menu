@@ -1,7 +1,8 @@
 <ul data-d="<%= d %>">
 
-<% taxons.each do |taxon| %>
+<% taxonomies.each do |taxonomy| %>
 	
+	<% taxon = root(taxonomy.id) %>
 	<li data-name="<%= taxon.name %>" data-id="<%= taxon.id %>">
 		
 		<p id="<%= taxon.name %>" class="li-element slide-trigger">
