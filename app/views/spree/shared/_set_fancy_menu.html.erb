@@ -1,0 +1,17 @@
+<nav id="user-fancy-menu" data-hook="user-header-fancy-menu">
+	<div class="container">
+		<div class="menu-wrapper">
+			<ul id="list-fancy-menu" class="inline-menu fullwidth-menu" data-hook="header-list-fancy-menu">
+				<% set_fancy_menu().each do |item| %>
+					<li class="tab-with-icon">
+						<a href="#" class="tab_link">
+							<span class="tab_text">
+								<%= item.name %>
+							</span>
+						</a>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</nav>

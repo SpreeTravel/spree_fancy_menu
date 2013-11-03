@@ -1,0 +1,95 @@
+/*
+ *= require store/spree_frontend
+*/
+
+#user-fancy-menu{
+	background-color: #5498da;
+	display: block;
+	box-sizing: border-box;
+}
+
+.container{
+	position: relative;
+	width: 960px;
+	margin: 0 auto;
+	padding: 0;
+	font-size: 13px;
+	box-sizing: border-box;
+}
+
+.container:after{
+	content: "\0020";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.container .sixteen .columns{
+	width: 940px;
+}
+
+.container .columns{
+	float: left;
+	display: inline;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.inline-menu{
+	margin: 0;
+	-webkit-margin-before: 0px;
+	-webkit-padding-start: 0px;
+	padding: 0;
+	font-size: 13px;
+	display: block;
+	list-style-type: disc;
+	-webkit-margin-after: 1em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	font-weight: 400;
+	color: #6788a2;
+}
+
+#user-fancy-menu li a{
+	display: block;
+	padding: 25px 20px;
+	color: white !important;
+	text-transform: uppercase;
+	position: relative;
+	text-align: center;
+}
+
+.icon-link{
+	width: auto;
+	outline: none;
+	height: auto;
+	line-height: normal;
+	vertical-align: baseline;
+	background-image: none;
+	background-position: 0% 0%;
+	background-repeat: repeat;
+	margin-top: 0px;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: inherit;
+	-webkit-font-smoothing: antialiased;
+	padding-right: 5px;
+	padding-top: 3px;
+	font-family: "Open Sans", "Helvetica Neue", "Helvetica";
+	text-decoration: inherit;
+	display: inline-block;
+	speak: none;
+	font-size: 13px;
+}
+
+.text{
+	font-weight: 600;
+	color: white !important;
+	text-transform: uppercase;
+	text-align: center;
+	line-height: normal;
+	font-style: normal;
+	font-size: 13px;
+	font-family: "Open Sans", "Helvetica Neue", "Helvetica";
+}
