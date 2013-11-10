@@ -13,15 +13,17 @@ module Spree
 
             FancyMenuItem.destroy_all
 
-            params[:menu].each do |fancy_item|
-              name = fancy_item[:name].chomp.reverse!.chomp.reverse!
-              item = Spree::FancyMenuItem.create(:name => name,
+            if params[:menu]
+              params[:menu].each do |fancy_item|
+                name = fancy_item[:name].chomp.reverse!.chomp.reverse!
+                item = Spree::FancyMenuItem.create(:name => name,
                                                  :index => fancy_item[:index],
                                                  :depth => fancy_item[:depth],
                                                  :taxon_id => fancy_item[:id])
-              if !item.save
-                @errors = item.errors
-                raise
+                if !item.save
+                  @errors = item.errors
+                  raise
+                end
               end
             end
 

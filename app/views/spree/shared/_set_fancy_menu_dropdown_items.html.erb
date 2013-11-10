@@ -1,0 +1,12 @@
+<div id="fancy-dropdown-<%=depth%>" class="<%= set_class_dropdown_container(depth) %>">
+	<ul class="list-fancy-dropdown">
+		<% taxon.children.each do |taxon| %>
+			<li class="item-fancy-dropdown">
+				<%= fancy_item_dropdown_link(taxon) %>
+				<% if depth < 3 %>
+					<%= render(:partial => 'spree/shared/set_fancy_menu_dropdown_items', :locals => { :taxon => taxon, :depth => depth + 1 }) %>
+				<% end %>
+			</li>
+		<%end%>
+	</ul>
+</div>
