@@ -1,13 +1,14 @@
 <% if fancy_menu? %>
+    <div class="clear-fancy"></div>
     <%= render(:partial => 'spree/shared/set_fancy_menu_inplace') %>
     <nav id="user-fancy-menu" data-hook="user-header-fancy-menu">
       <div class="fancy-container">
-        <% if @taxon %>
+        <% if fancy_breadcrumbs?(@taxon) %>
           <div class="breadcrumbs-wrapper fancy-width">
-            <ul id="list-fancy-breadcrumbs" class="list-fancy inline-breadcrumbs" data-hook="header-list-fancy-breadcrumbs">
+            <ul id="fancy-breadcrumbs" data-hook="header-fancy-breadcrumbs">
               <% set_fancy_breadcrumbs(@taxon.id).each do |item| %>
-                <li class="item-fancy item-fancy-breadcrumbs">
-                  <a href="<%= item.permalink %>" class="item-breadcrumbs-link">
+                <li>
+                  <a href="<%= set_fancy_item_link(item.permalink) %>">
                     <span class="item-breadcrumbs-text">
                       <%= item.name %>
                     </span>
@@ -20,7 +21,6 @@
             <div class="clear-fancy"></div>
           </div>
         <% end %>
-        <div class="clear-fancy"></div>
         <div class="menu-wrapper fancy-width">
           <ul id="fancy-menu">
             <% set_fancy_menu.each do |item| %>
@@ -32,9 +32,8 @@
               </li>
             <% end %>
           </ul>
+          <div class="clear-fancy"></div>
         </div>
-        <div class="clear-fancy"></div>
       </div>
     </nav>
-    <div class="clear-fancy"></div>
 <% end %>

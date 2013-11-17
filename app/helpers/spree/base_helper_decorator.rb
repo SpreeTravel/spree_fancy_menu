@@ -4,6 +4,10 @@ Spree::BaseHelper.module_eval do
 		Spree::FancyMenuItem.any?
 	end
 
+  def fancy_breadcrumbs?(taxon)
+    return taxon && taxon.ancestors.any?
+  end
+
 	def set_fancy_menu(options = {})
 		items = []
 		Spree::FancyMenuItem.all.each do |fi|

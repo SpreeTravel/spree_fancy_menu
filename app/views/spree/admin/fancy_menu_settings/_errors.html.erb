@@ -1,1 +1,13 @@
-<h1>ERRORRRRSSSSSSS</h1>
+<div id="errors">
+
+	<ul id="list-errors">
+
+		<li>Errors:<span id="msg"> (The menu has ben reset to the last stable update)</span></li>
+
+		<% @errors[:base].each do |e| %>
+			<li><%= e %></li>
+		<% end %>
+		
+	</ul>
+	
+</div>

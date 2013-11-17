@@ -2,6 +2,28 @@
  *= require store/spree_frontend
 */
 
+#fancy-breadcrumbs{
+    list-style-type: none;
+    color: #5498da;
+}
+
+#fancy-breadcrumbs li{
+    float: left;
+    margin: 3px;
+}
+
+#fancy-breadcrumbs li a:hover{
+    color: #9FC820;
+}
+
+#item-breadcrumbs-text{
+
+}
+
+#fancy-taxon-selected{
+    color: #CCCCCC !important;
+}
+
 .fancy-width{
 	width: 100%;
 }

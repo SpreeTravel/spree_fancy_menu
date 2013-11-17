@@ -120,6 +120,29 @@ html>body #sortable_menu li {
 	display: none;
 }
 
+#errors{
+  margin-bottom: 5px;
+  background-color: #F2DEDE;
+  border-color: #EED3D7;
+  border-radius: 5px;
+  color: #B94A48;
+  padding: 8px 35px 8px 14px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+}
+
+#list-errors{
+  list-style-type: none;
+}
+
+#msg{
+  font-size: 12px;
+  font-weight: normal;
+}
+
 .icont-glass {
   background-position: 0      0;
 }
