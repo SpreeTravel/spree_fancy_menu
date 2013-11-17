@@ -1,7 +1,7 @@
 Spree::BaseHelper.module_eval do
 
 	def fancy_menu?()
-		Spree::FancyMenuItem.count > 0
+		Spree::FancyMenuItem.any?
 	end
 
 	def set_fancy_menu(options = {})
@@ -24,22 +24,13 @@ Spree::BaseHelper.module_eval do
   	link_to content_tag(:span, taxon.name, :class => "item-menu-text"), set_fancy_item_link(taxon.permalink), :class => css_class
   end
 
-  def fancy_item_dropdown_link(taxon)
-  	css_class = "item-menu-dropdown-link"
-  	link_to content_tag(:span, taxon.name, :class => "item-menu-dropdown-text"), set_fancy_item_link(taxon.permalink), :class => css_class
-  end
-
   def set_fancy_item_link(permalink)
   	"/t/" << permalink
   end
 
-  def set_class_dropdown_container(depth)
-  	depth == 1 ? "fancy-container-dropdown-surface" : "fancy-container-dropdown-deeper"
-  end
-
   def need_render?(depth, taxon)
     taxon.reload
-    depth < 3 && taxon.children.count > 0
+    depth < 3 && taxon.children.any?
   end
 
 end

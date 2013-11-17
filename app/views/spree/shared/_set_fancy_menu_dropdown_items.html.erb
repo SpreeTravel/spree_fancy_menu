@@ -1,7 +1,16 @@
-<ul>
+<ul id="depth-<%= depth %>">
 	<% taxon.children.each do |item| %>
 		<li>
-			<%= fancy_item_dropdown_link(item) %>
+			<% if item.children.any? %>
+		     	<%= link_to(set_fancy_item_link(item.permalink), { :class => "item-menu-dropdown-link" }) do %>
+		     		<span class="item-menu-dropdown-text">
+		     			<%= item.name %>
+			     		<i class="icon-chevron-right"></i>
+		     		</span>
+		    	<% end %>
+		    <% else %>
+		     	<%= link_to content_tag(:span, item.name, :class => "item-menu-dropdown-text"), set_fancy_item_link(item.permalink), :class => "item-menu-dropdown-link" %>
+		    <% end %>
 			<% if need_render?(depth, item) %>
 				<%= render(:partial => 'spree/shared/set_fancy_menu_dropdown_items', :locals => { :taxon => item, :depth => depth + 1 }) %>
 			<% end %>

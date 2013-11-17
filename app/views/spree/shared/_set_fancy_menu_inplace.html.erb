@@ -1,13 +1,13 @@
 <script>
 
 	$().ready(function(){
-		$("#nav li").hover(
+		$("#fancy-menu li").hover(
 		    function(){
 		        $(this).children('ul').hide();
 		        $(this).children('ul').slideDown('fast');
 		    },
 		    function () {
-		        $('ul', this).slideUp('fast');            
+		        $('ul', this).hide();            
 		    });
 	});
 
