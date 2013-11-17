@@ -37,4 +37,9 @@ Spree::BaseHelper.module_eval do
   	depth == 1 ? "fancy-container-dropdown-surface" : "fancy-container-dropdown-deeper"
   end
 
+  def need_render?(depth, taxon)
+    taxon.reload
+    depth < 3 && taxon.children.count > 0
+  end
+
 end
