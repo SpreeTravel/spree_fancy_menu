@@ -2,13 +2,17 @@
  *= require admin/spree_backend
 */
 
+/*
+Sass. Variables and Mixins
+*/
+
 $spree_blue: #5498DA;
 $spree_green: #9FC820;
 
-@mixin text-format ($case: u) {
+@mixin text-format ($case: upper) {
   font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
   color: white;
-  @if $case == u { 
+  @if $case == upper { 
     text-transform: uppercase; 
   }
   @else { 
@@ -19,6 +23,15 @@ $spree_green: #9FC820;
 @mixin item-hover {
   cursor: pointer;
   background-color: $spree_green;
+}
+
+/*
+Sortable Menu (jquery ui)
+*/
+
+.ui-state-highlight { 
+  height: 1.5em; 
+  line-height: 2.5em; 
 }
 
 #container-sortable-menu{
@@ -39,6 +52,7 @@ $spree_green: #9FC820;
       margin: 0 0 0 0; 
       padding: 5px; 
       font-size: 0.9em;
+      line-height: 2.5em;
       float: left;
       background-color: $spree_blue;
 
@@ -59,18 +73,9 @@ $spree_green: #9FC820;
   }
 }
 
-html>body #sortable_menu li {
-  line-height: 2.5em; 
-}
-
-.ui-state-highlight { 
-  height: 1.5em; 
-  line-height: 2.5em; 
-}
-
-.clear{
-  float: none;
-}
+/*
+Taxonomies TreeView
+*/
 
 #taxons-tree {
 	margin-top: 10px;
@@ -78,7 +83,7 @@ html>body #sortable_menu li {
   ul {
     list-style-type: none;
 
-    .li-element{
+    p {
       background-color: lighten($spree_blue, 10%);
       border: solid $spree_blue 1px;
       border-radius: 10px;
@@ -93,42 +98,45 @@ html>body #sortable_menu li {
       a {
         margin-left: 1.0em;
         text-align: center;
-        @include text-format(l);
+        @include text-format(lower);
       }
 
-      .icon-list-taxon{
+      .icon-list-taxon {
         margin-left: 1.0em;
       }
     }
   }
 }
 
-[class^="icont-"],
-[class*=" icont-"] {
-	display: inline-block;
-  width: 14px;
-  height: 14px;
-  line-height: 14px;
-	background-image: url("../wicons.png");
-	background-repeat: no-repeat;
-}
-
-#admin-fancy-menu-controls{
-	margin-top: 20px;
-}
+/*
+Controls, Buttons & Submit
+*/
 
 #button-collapse {
-	margin-top: 10px;
-	font-size: 1.0em;
-	padding: 5px;
-	text-align: center;
+  margin-top: 10px;
+  font-size: 1.0em;
+  padding: 5px;
+  text-align: center;
+  border-radius: 20px;
+
+  i {
+    margin-top: 3px;
+  }
 }
 
-#admin-fancy-menu-form form input[name="commit"]{
-	display: none;
+#admin-fancy-menu-controls {
+  margin-top: 20px;
 }
 
-#errors{
+#admin-fancy-menu-form form input[name="commit"] {
+  display: none;
+}
+
+/*
+Errors Display Format
+*/
+
+#errors {
   margin-bottom: 5px;
   background-color: #F2DEDE;
   border-color: #EED3D7;
@@ -151,9 +159,24 @@ html>body #sortable_menu li {
   }
 }
 
+/*
+Icons & Images
+*/
+
+[class^="icont-"],
+[class*=" icont-"] {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  line-height: 14px;
+  background-image: url("../wicons.png");
+  background-repeat: no-repeat;
+}
+
 .icont-black {
   background-image: url("../bicons.png");
 }
+
 .icont-list {
   background-position: -360px -48px;
 }
@@ -180,4 +203,15 @@ html>body #sortable_menu li {
 }
 .icont-thumbs-up {
   background-position: -96px -144px;
+}
+.icont-circle-arrow-up {
+  background-position: -288px -144px;
+}
+
+/*
+Utils
+*/
+
+.clear{
+  float: none;
 }

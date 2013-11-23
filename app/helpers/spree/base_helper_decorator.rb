@@ -21,11 +21,11 @@ Spree::BaseHelper.module_eval do
 	end
 
   def fancy_item_link(taxon, taxon_selected)
-  	css_class = "item-menu-link" 
+  	css_class = "menu-item-link" 
   	if taxon_selected && taxon.name == taxon_selected.name
-  		css_class << " fancy-item-active" 
+  		css_class << " menu-item-link-active" 
   	end
-  	link_to content_tag(:span, taxon.name, :class => "item-menu-text"), set_fancy_item_link(taxon.permalink), :class => css_class
+  	link_to content_tag(:span, taxon.name, :class => "menu-item-text"), set_fancy_item_link(taxon.permalink), :class => css_class
   end
 
   def set_fancy_item_link(permalink)

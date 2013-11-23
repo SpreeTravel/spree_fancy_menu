@@ -9,9 +9,9 @@
 <%= render :partial => 'menu_preview' %>
 
 <%= button_tag(:type => 'button', :id => "button-collapse") do %>
-    <i class="icon-chevron-up"></i>
-  	<span>Collapse</span>
+    <i class="icont-circle-arrow-up"></i>
 <% end %>
+
 <div id="taxons-tree">
 	<%= render(:partial => 'roots', :locals => { :taxonomies => @taxonomies, :d => 0 }) %>
 </div>
