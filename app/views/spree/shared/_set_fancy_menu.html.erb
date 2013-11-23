@@ -1,28 +1,28 @@
 <% if fancy_menu? %>
     <div class="clear-fancy"></div>
     <%= render(:partial => 'spree/shared/set_fancy_menu_inplace') %>
-    <nav id="user-fancy-menu" data-hook="user-header-fancy-menu">
-      <div class="fancy-container">
+    <nav id="user-fancy-menu" data-hook="header-user-fancy-menu">
+      <div id="fancy-container">
         <% if fancy_breadcrumbs?(@taxon) %>
-          <div class="breadcrumbs-wrapper fancy-width">
-            <ul id="fancy-breadcrumbs" data-hook="header-fancy-breadcrumbs">
+          <div id="fancy-breadcrumbs-wrapper" class="fancy-width">
+            <ul id="fancy-breadcrumbs" data-hook="header-user-fancy-menu-breadcrumbs">
               <% set_fancy_breadcrumbs(@taxon.id).each do |item| %>
                 <li>
                   <a href="<%= set_fancy_item_link(item.permalink) %>">
-                    <span class="item-breadcrumbs-text">
+                    <span class="breadcrumbs-item-text">
                       <%= item.name %>
                     </span>
                     <span class="divider">/</span>
                   </a>
                 </li>
               <% end %>
-              <li id="fancy-taxon-selected"><%= @taxon.name %></li>
+              <li id="breadcrumbs-item-selected"><%= @taxon.name %></li>
             </ul>
             <div class="clear-fancy"></div>
           </div>
         <% end %>
-        <div class="menu-wrapper fancy-width">
-          <ul id="fancy-menu">
+        <div id="fancy-menu-wrapper" class="fancy-width">
+          <ul id="fancy-menu" data-hook="header-user-fancy-menu-menu">
             <% set_fancy_menu.each do |item| %>
               <li>
                 <%= fancy_item_link(item, @taxon) %>
