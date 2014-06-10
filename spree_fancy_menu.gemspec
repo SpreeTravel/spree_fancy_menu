@@ -7,7 +7,7 @@ versions = yaml['gems']
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_fancy_menu'
-  s.version     = versions['spree_travel']
+  s.version     = '0.7.0'
   s.summary     = 'Fancy Menu'
   s.description = 'Spree now has one fancy menu, with javascript, and you have the possibility to choose the elements for that menu'
   s.required_ruby_version = '>= 1.9.3'
@@ -16,13 +16,13 @@ Gem::Specification.new do |s|
   s.email     = 'pqr@openjaf.com'
   s.homepage  = 'http://github.com/openjaf/spree_fancy_menu'
 
-  #s.files       = `git ls-files`.split("\n")
+  s.files       = `git ls-files`.split("\n")
   #s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '~> ' + versions['spree']
-  s.add_dependency 'spree_auth_devise', '~> ' + versions['spree_auth_devise']
+  s.add_dependency 'spree_core', '>= ' + versions['spree']
+  s.add_dependency 'spree_auth_devise', '>= ' + versions['spree_auth_devise']
   s.add_dependency 'jquery-ui-rails'
   s.add_dependency 'bootstrap-sass'
 

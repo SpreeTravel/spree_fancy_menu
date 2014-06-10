@@ -1,5 +1,5 @@
 /*
- *= require admin/spree_backend
+ *= require spree/backend
 */
 
 /*
@@ -12,11 +12,11 @@ $spree_green: #9FC820;
 @mixin text-format ($case: upper) {
   font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
   color: white;
-  @if $case == upper { 
-    text-transform: uppercase; 
+  @if $case == upper {
+    text-transform: uppercase;
   }
-  @else { 
-    text-transform: lowercase; 
+  @else {
+    text-transform: lowercase;
   }
 }
 
@@ -29,9 +29,9 @@ $spree_green: #9FC820;
 Sortable Menu (jquery ui)
 */
 
-.ui-state-highlight { 
-  height: 1.5em; 
-  line-height: 2.5em; 
+.ui-state-highlight {
+  height: 1.5em;
+  line-height: 2.5em;
 }
 
 #container-sortable-menu{
@@ -40,17 +40,17 @@ Sortable Menu (jquery ui)
 	padding-right: 20px;
 	min-height: 39px;
 
-  #sortable_menu { 
-    list-style-type: none; 
-    margin: 0; 
-    padding: 0; 
-    width: 100%; 
+  #sortable_menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
     border: none;
     @include text-format;
 
     li {
-      margin: 0 0 0 0; 
-      padding: 5px; 
+      margin: 0 0 0 0;
+      padding: 5px;
       font-size: 0.9em;
       line-height: 2.5em;
       float: left;

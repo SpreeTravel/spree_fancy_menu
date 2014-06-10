@@ -1,5 +1,5 @@
 /*
- *= require store/spree_frontend
+ *= require spree/frontend
 */
 
 /*
@@ -63,7 +63,7 @@ Fancy Menu Breadcrumbs
 	text-transform: uppercase;
 	font-size: 12px;
   background: $spree_blue;
-  border: 1px solid $spree_blue; 
+  border: 1px solid $spree_blue;
   border-radius: 3px;
   min-width:500px;
   margin-left: 0px;
@@ -121,12 +121,12 @@ Fancy Menu Breadcrumbs
         background: lighten($spree_green, 10%);
       }
 
-      &:last-child{ 
+      &:last-child{
         border-bottom: none;
       }
     }
   }
-  
+
   li {
     list-style: none;
     display: block;
@@ -151,7 +151,7 @@ Fancy Menu Breadcrumbs
     &:hover {
       @include item-hover;
 
-      a { 
+      a {
         border-bottom: none;
       }
 
@@ -177,7 +177,6 @@ Text, Icons & Images
     width: 14px;
     height: 14px;
     line-height: 12px;
-    background-image: url("../wicons.png");
     background-repeat: no-repeat;
 }
 
